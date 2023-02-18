@@ -20,6 +20,9 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MediaQuery.of(context).orientation == Orientation.portrait
+          ? AppBar()
+          : null,
       backgroundColor: Color.fromARGB(255, 221, 221, 221),
       body: MediaQuery.of(context).orientation == Orientation.portrait
           ? portrait(context)

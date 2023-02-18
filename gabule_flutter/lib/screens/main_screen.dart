@@ -39,26 +39,29 @@ class MainState extends State<MainScreen> {
       body: MediaQuery.of(context).orientation == Orientation.portrait
           ? portrait(context)
           : landscape(context),
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            icon: CircleAvatar(
-              backgroundImage:
-                  NetworkImage(widget.user['picture']['thumbnail']),
-            ),
-            onPressed: () {
-              scaffoldKey.currentState!.openEndDrawer();
-            },
-          ),
-        ],
-        leading: MediaQuery.of(context).orientation == Orientation.portrait
-            ? IconButton(
-                icon: const Icon(MyIcons.hamburger),
-                onPressed: () {
-                  scaffoldKey.currentState!.openDrawer();
-                })
-            : null,
-      ),
+      appBar: MediaQuery.of(context).orientation == Orientation.portrait
+          ? AppBar(
+              actions: [
+                IconButton(
+                  icon: CircleAvatar(
+                    backgroundImage:
+                        NetworkImage(widget.user['picture']['thumbnail']),
+                  ),
+                  onPressed: () {
+                    scaffoldKey.currentState!.openEndDrawer();
+                  },
+                ),
+              ],
+              leading:
+                  MediaQuery.of(context).orientation == Orientation.portrait
+                      ? IconButton(
+                          icon: const Icon(MyIcons.hamburger),
+                          onPressed: () {
+                            scaffoldKey.currentState!.openDrawer();
+                          })
+                      : null,
+            )
+          : null,
       drawer: MediaQuery.of(context).orientation == Orientation.portrait
           ? Drawer(
               width: MediaQuery.of(context).size.width / 2,
@@ -268,7 +271,7 @@ class SettingsScreen extends StatelessWidget {
     return Container(
       color: Colors.amber,
       height: 700,
-      width: 300,
+      width: 400,
       margin: EdgeInsets.only(bottom: 100),
     );
   }
