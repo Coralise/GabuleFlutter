@@ -259,28 +259,17 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: [
-          Flexible(
-              child: Column(
-            children: [
-              Post("Settings", "assets/images/addu-library.jpg"),
-            ],
-          )),
-          Flexible(child: card(context))
-        ],
+        children: [Post("Settings", "assets/images/addu-library.jpg"), card()],
       ),
     );
   }
 
-  Widget card(context) {
+  Widget card() {
     return Container(
       color: Colors.amber,
       height: 700,
-      width: MediaQuery.of(context).orientation == Orientation.portrait
-          ? MediaQuery.of(context).size.width
-          : MediaQuery.of(context).size.width / 2,
+      width: 300,
       margin: EdgeInsets.only(bottom: 100),
-      padding: EdgeInsets.symmetric(horizontal: 30),
     );
   }
 }
